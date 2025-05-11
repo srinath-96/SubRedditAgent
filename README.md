@@ -7,6 +7,9 @@ The Reddit RAG Chatbot is a Python application that allows users to scrape conte
 The application features an initial setup screen for users to input necessary API keys, which are then stored locally in a `.env` file for subsequent sessions.
 
 ## Heres How it looks like!
+![image](https://github.com/user-attachments/assets/d3bebac2-fbf4-4a67-9d21-0fe03cdcdfb5)
+![image](https://github.com/user-attachments/assets/a4fc617b-22cf-444e-8c39-3a0a53fc8c92)
+
 
 ## Features
 
@@ -105,33 +108,6 @@ The `config.py` file contains default settings and model configurations:
 *   `ADK_AGENT_MODEL`: Name of the Google generative model used by the chatbot.
 *   Paths for the `.env` file discovery.
 
-## Deployment (e.g., Vercel)
-
-While Flet apps can be deployed as web applications, deploying to platforms like Vercel requires specific configuration due to Flet's server architecture.
-
-1.  **Prepare `main.py`**: Modify `main.py` to run `ft.app(..., view=ft.WEB_BROWSER, host="0.0.0.0", port=int(os.getenv("PORT", 8080)))`.
-2.  **`requirements.txt`**: Ensure all dependencies are listed.
-3.  **`vercel.json`**: Configure Vercel to use the Python runtime and route requests to `main.py`.
-    ```json
-    {
-        "version": 2,
-        "builds": [
-            {
-                "src": "main.py",
-                "use": "@vercel/python"
-            }
-        ],
-        "routes": [
-            {
-                "src": "/(.*)",
-                "dest": "main.py"
-            }
-        ]
-    }
-    ```
-4.  **Environment Variables on Vercel**: Set your API keys (`GOOGLE_API_KEY`, `REDDIT_CLIENT_ID`, etc.) in the Vercel project settings dashboard instead of relying on a `.env` file in the deployed environment.
-
-*Note: For simpler deployment specifically designed for Flet, consider exploring `flet deploy` if available for your Flet version and project complexity.*
 
 ## Potential Future Enhancements
 
